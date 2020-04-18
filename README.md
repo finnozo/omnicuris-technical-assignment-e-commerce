@@ -1,11 +1,34 @@
 # Omnicuris Technical Assignment E-commerce Application
 
+[![Build Status](https://travis-ci.org/codecentric/springboot-sample-app.svg?branch=master)](https://travis-ci.org/codecentric/springboot-sample-app)
+[![Coverage Status](https://coveralls.io/repos/github/codecentric/springboot-sample-app/badge.svg?branch=master)](https://coveralls.io/github/codecentric/springboot-sample-app?branch=master)
+[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+Minimal [Spring Boot](http://projects.spring.io/spring-boot/) sample app.
+
 ## Requirements
 
 For building and running the application you need:
 
-- [JDK 1.8](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 - [Maven 3](https://maven.apache.org)
+
+## Built With
+  * [Maven](https://maven.apache.org/) - Dependency Management
+  * [JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) - Java™ Platform, Standard Edition Development Kit
+  * [Spring Boot](https://spring.io/projects/spring-boot) - Framework to ease the bootstrapping and development of new Spring Applications
+  * [MySQL](https://www.mysql.com/) - Open-Source Relational Database Management System
+  * [git](https://git-scm.com/) - Free and Open-Source distributed version control system
+  * [Lombok](https://projectlombok.org/) - Never write another getter or equals method again, with one annotation your class has a fully featured builder, Automate your logging variables, and much more.
+  * [Swagger](https://swagger.io/) - Open-Source software framework backed by a large ecosystem of tools that helps developers design, build, document, and consume RESTful Web services.
+
+## External Tools Used
+
+* [Postman](https://www.getpostman.com/) - API Development Environment (Testing Docmentation)
+
+## To-Do
+- [x] RESTful Web Service (CRUD)
+- [x] MySQL (Connect to Single Schemas)
 
 # Runnig this project 
   1. Clone this project https://github.com/sushildangi/omnicuris-technical-assignment-e-commerce.git
@@ -73,7 +96,17 @@ For building and running the application you need:
 
   ```
   
-  5. Run Project One time using Spring boot command - **mvn spring-boot:run** or using eclipse IDE run as Java Application
+  6. Run Project One time using Spring boot command - **mvn spring-boot:run** or using eclipse IDE run as Java Application
+  
+  ### Items URLs
+
+|  URL |  Method | Remarks |
+|----------|--------------|--------------|
+|`http://localhost:8080/api/items`                               | GET    | List of all items|
+|`http://localhost:8080/api/items/1`                             | GET    | Get Single Item|
+|`http://localhost:8080//api/items`                              | POST   | Create new Item|
+|`http://localhost:8080/api/items`                               | PUT    | Update existing Item|
+|`http://localhost:8080/api/items/1`                             | DELETE | Delete existing Item|
   
 
 
