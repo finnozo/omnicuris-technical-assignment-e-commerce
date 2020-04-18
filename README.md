@@ -1,1 +1,79 @@
-# omnicuris-technical-assignment-e-commerce
+# Omnicuris Technical Assignment E-commerce Application
+
+## Requirements
+
+For building and running the application you need:
+
+- [JDK 1.8](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [Maven 3](https://maven.apache.org)
+
+# Runnig this project 
+  1. Clone this project https://github.com/sushildangi/omnicuris-technical-assignment-e-commerce.git
+  2. create databases schema in mysql - **assignment-ecommerce**
+  3. edit/change **username** and **password** in **applicaton.properties** file
+  4. Run this Query in mysql
+  
+  ```sql 
+    CREATE TABLE `items` (
+      `id` bigint(20) NOT NULL AUTO_INCREMENT,
+      `active` bit(1) DEFAULT NULL,
+      `date_created` datetime(6) NOT NULL,
+      `last_updated` datetime(6) DEFAULT NULL,
+      `description` varchar(255) DEFAULT NULL,
+      `image_url` varchar(255) DEFAULT NULL,
+      `name` varchar(255) DEFAULT NULL,
+      `sku` varchar(255) DEFAULT NULL,
+      `unit_price` decimal(19,2) DEFAULT NULL,
+      `units_in_stock` int(11) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  ```
+
+   ```sql 
+    CREATE TABLE `orders` (
+      `id` bigint(20) NOT NULL AUTO_INCREMENT,
+      `active` bit(1) DEFAULT NULL,
+      `date_created` datetime(6) NOT NULL,
+      `last_updated` datetime(6) DEFAULT NULL,
+      `email_id` varchar(255) NOT NULL,
+      `item_id` bigint(20) NOT NULL,
+      `number_of_items` int(11) NOT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  ```
+  5. Insert Sample data in items table
+  
+  ```sql 
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1001', 'Become a Guru in JavaScript', 'Learn JavaScript at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1001.png', 1, 100, 20.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1002', 'Exploring Vue.js', 'Learn Vue.js at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1002.png', 1, 100, 14.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1003', 'Advanced Techniques in Big Data', 'Learn Big Data at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1003.png', 1, 100, 13.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1004', 'Crash Course in Big Data', 'Learn Big Data at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1004.png', 1, 100, 18.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1005', 'JavaScript Cookbook', 'Learn JavaScript at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1005.png', 1, 100, 23.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1006', 'Beginners Guide to SQL', 'Learn SQL at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1006.png', 1, 100, 14.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1007', 'Advanced Techniques in JavaScript', 'Learn JavaScript at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1007.png', 1, 100, 16.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1008', 'Introduction to Spring Boot', 'Learn Spring Boot at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1008.png', 1, 100, 25.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1009', 'Become a Guru in React.js', 'Learn React.js at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1009.png', 1, 100, 23.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1010', 'Beginners Guide to Data Science', 'Learn Data Science at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1010.png', 1, 100, 24.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1011', 'Advanced Techniques in Java', 'Learn Java at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1011.png', 1, 100, 19.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1012', 'Exploring DevOps', 'Learn DevOps at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1012.png', 1, 100, 24.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1013', 'The Expert Guide to SQL', 'Learn SQL at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1013.png', 1, 100, 19.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1014', 'Introduction to SQL', 'Learn SQL at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1014.png', 1, 100, 22.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1015', 'The Expert Guide to JavaScript', 'Learn JavaScript at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1015.png', 1, 100, 22.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1016', 'Exploring React.js', 'Learn React.js at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1016.png', 1, 100, 27.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1017', 'Advanced Techniques in React.js', 'Learn React.js at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1017.png', 1, 100, 13.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1018', 'Introduction to C#', 'Learn C# at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1018.png', 1, 100, 26.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1019', 'Crash Course in JavaScript', 'Learn JavaScript at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1019.png', 1, 100, 13.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1020', 'Introduction to Machine Learning', 'Learn Machine Learning at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1020.png', 1, 100, 19.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1021', 'Become a Guru in Java', 'Learn Java at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1021.png', 1, 100, 18.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1022', 'Introduction to Python', 'Learn Python at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1022.png', 1, 100, 26.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1023', 'Advanced Techniques in C#', 'Learn C# at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1023.png', 1, 100, 22.99, NOW());
+      INSERT INTO items (SKU, NAME, DESCRIPTION, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, UNIT_PRICE,DATE_CREATED) VALUES ('BOOK-TECH-1024', 'The Expert Guide to Machine Learning', 'Learn Machine Learning at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/itemss/books/book-luv2code-1024.png', 1, 100, 16.99, NOW());
+
+  ```
+  
+  5. Run Project One time using Spring boot command - **mvn spring-boot:run** or using eclipse IDE run as Java Application
+  
+
+
