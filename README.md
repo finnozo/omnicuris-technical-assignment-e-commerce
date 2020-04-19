@@ -107,6 +107,38 @@ For building and running the application you need:
 |`http://localhost:8080//api/items`                              | POST   | Create new Item|
 |`http://localhost:8080/api/items`                               | PUT    | Update existing Item|
 |`http://localhost:8080/api/items/1`                             | DELETE | Delete existing Item|
+
+  ### Order URLs
+
+|  URL |  Method | Remarks |
+|----------|--------------|--------------|
+|`http://localhost:8080/api/order`                               | GET    | List of all order|
+|`http://localhost:8080/api/order/test@gmail.com`                | GET    | List all order of paticular email id|
+|`http://localhost:8080//api/order`                              | POST   | Create Single order|
+|`http://localhost:8080/api/order/orders`                        | POST   | Create Bulk order |
+
+## Swagger UI URL
+
+|  URL |  Method | Remarks |
+|----------|--------------|--------------|
+|`http://localhost:8080/swagger-ui.html#/`                               | GET    | List of API|
+
+## packages
+
+- `models` — to hold our entities;
+- `repositories` — to communicate with the database;
+- `services` — to hold our business logic;
+- `controllers` — to listen to the client;
+
+- `resources/` - Contains all the static resources, templates and property files.
+- `resources/static` - contains static resources such as css, js and images.
+- `resources/templates` - contains server-side templates which are rendered by Spring.
+- `resources/application.properties` - It contains application-wide properties. Spring reads the properties defined in this file to configure your application. You can define server’s default port, server’s context path, database URLs etc, in this file.
+
+- `test/` - contains unit and integration tests
+
+- `pom.xml` - contains all the project dependencies
+
   
 
 
