@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 @Setter
 @Getter
 public class Items extends BaseAudit {
-
     @Column(name = "sku")
     private String sku;
     @Column(name = "name")
